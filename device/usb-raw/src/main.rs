@@ -9,9 +9,9 @@ use embassy_rp::{
     usb::{Driver, InterruptHandler},
 };
 use embassy_usb::{
+    Builder, Config, Handler,
     control::{InResponse, OutResponse, Recipient, Request, RequestType},
     types::InterfaceNumber,
-    Builder, Config, Handler,
 };
 #[allow(unused_imports)]
 use {defmt_rtt as _, panic_probe as _};
