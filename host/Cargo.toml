@@ -3,11 +3,11 @@ members = [
     "lsusb"
 ]
 
-resolver = "2"
+resolver = "3"
 
 [workspace.dependencies]
-anyhow = { version = "1.0.86" }
-env_logger = { version = "0.11.3" }
-futures-lite = { version = "2.3.0" }
-log = { version = "0.4.21" }
-nusb = { version = "0.1.9" }
+anyhow = { version = "1.0.100" }
+env_logger = { version = "0.11.8" }
+futures-lite = { version = "2.6.1" }
+log = { version = "0.4.28" }
+nusb = { version = "0.2.1" }
