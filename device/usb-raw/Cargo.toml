@@ -6,6 +6,12 @@ edition = "2024"
 [[bin]]
 name = "usb-raw"
 test = false
+bench = false
+
+[[test]]
+name = "usb-raw-tests"
+bench = false
+harness = false
 
 [dependencies]
 cortex-m-rt = { workspace = true }
