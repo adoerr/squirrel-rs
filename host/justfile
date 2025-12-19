@@ -29,7 +29,7 @@
     echo "{{BLUE}}Building host in debug mode...{{NORMAL}}"
     cargo build
 
-# Release  build
+# Release build
 @release:
-    echo "{{BLUE}}Building  host in release mode...{{NORMAL}}"
+    echo "{{BLUE}}Building host in release mode...{{NORMAL}}"
     cargo build --release

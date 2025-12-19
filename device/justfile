@@ -19,7 +19,7 @@
     echo "{{BLUE}}Updating device dependencies...{{NORMAL}}"
     cargo update
 
-# Check for outdated  dependencies
+# Check for outdated dependencies
 @outdated:
     echo "{{BLUE}}Checking for outdated device dependencies...{{NORMAL}}"
     cargo outdated -R
@@ -29,7 +29,7 @@
     echo "{{BLUE}}Building device in debug mode...{{NORMAL}}"
     cargo build
 
-# Release  build
+# Release build
 @release:
     echo "{{BLUE}}Building device in release mode...{{NORMAL}}"
     cargo build --release
