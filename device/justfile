@@ -1,0 +1,35 @@
+# Remove build artifacts
+@clean:
+    echo "{{BLUE}}Removing device build artifacts...{{NORMAL}}"
+    cargo clean
+
+# Format and lint
+@check:
+    echo "{{BLUE}}Formatting and linting device...{{NORMAL}}"
+    cargo +nightly fmt --all
+    cargo +nightly clippy --workspace --all-features -- -D warnings
+
+# Sort dependencies
+@sort:
+    echo "{{BLUE}}Sorting device dependencies...{{NORMAL}}"
+    cargo sort -g
+
+# Update dependencies
+@update:
+    echo "{{BLUE}}Updating device dependencies...{{NORMAL}}"
+    cargo update
+
+# Check for outdated  dependencies
+@outdated:
+    echo "{{BLUE}}Checking for outdated device dependencies...{{NORMAL}}"
+    cargo outdated -R
+
+# Debug build
+@debug:
+    echo "{{BLUE}}Building device in debug mode...{{NORMAL}}"
+    cargo build
+
+# Release  build
+@release:
+    echo "{{BLUE}}Building device in release mode...{{NORMAL}}"
+    cargo build --release

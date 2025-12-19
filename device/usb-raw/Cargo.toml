@@ -3,6 +3,10 @@ name = "usb-raw"
 version = "0.1.0"
 edition = "2024"
 
+[[bin]]
+name = "usb-raw"
+test = false
+
 [dependencies]
 cortex-m-rt = { workspace = true }
 defmt = { workspace = true }
