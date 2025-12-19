@@ -1,37 +1,32 @@
-clean:
-    cd device && cargo clean
-    cd host && cargo clean
+mod device 'device'
+mod host 'host'
 
-build:
-    cd device && cargo build
-    cd host && cargo build
+# Remove build artifacts and disk image
+@clean: device::clean host::clean
 
-sort:
-    cd device && cargo sort -w -g
-    cd host && cargo sort -w -g
+# Check formatting and linting
+@check: device::check host::check
 
-check:
-    cd device && \
-    cargo +nightly fmt --all && \
-    cargo +nightly clippy --workspace --all-features -- -D warnings
+# Sort dependencies
+@sort: device::sort host::sort
 
-    cd host && \
-    cargo +nightly fmt --all && \
-    cargo +nightly clippy --workspace --all-features -- -D warnings
+# Update dependencies
+@update: device::update host::update
 
-update:
-    cd device && cargo update
-    cd host && cargo update
+# Check for outdated dependencies
+@outdated: device::outdated host::outdated
 
-outdated:
-    cd device && cargo outdated -R
-    cd host && cargo outdated -R
+# Release build all components
+@release: device::release host::release
 
-flash binary:
+# Debug build all components
+@debug: device::debug host::debug
+
+@flash binary:
     cd device && cargo run --bin {{binary}}
 
-attach binary:
+@attach binary:
     probe-rs attach --chip RP2040 device/target/thumbv6m-none-eabi/debug/{{binary}}
 
-run binary:
+@run binary:
     cd host && RUST_LOG=info cargo run --bin {{binary}}
